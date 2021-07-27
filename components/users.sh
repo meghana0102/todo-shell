@@ -16,11 +16,11 @@ Stat $?
 DOWNLOAD_COMPONENT
 
 Head "Extract Downloaded Archive"
-cd /home/ubuntu && rm -rf users && unzip -o /tmp/users.zip &>>$LOG && mv users-main users  && cd users && mvn clean package &>>$LOG && mv target/users-api-0.0.1.jar users.jar
+cd /home/ubuntu && rm -rf user && unzip -o /tmp/user.zip &>>$LOG && mv user-main user  && cd user && mvn clean package &>>$LOG && mv target/users-api-0.0.1.jar user.jar
 Stat $?
 
 
 
 Head "Setup SystemD Service"
-mv /home/ubuntu/users/systemd.service /etc/systemd/system/users.service && systemctl daemon-reload && systemctl start users && systemctl enable users &>>$LOG
+mv /home/ubuntu/user/systemd.service /etc/systemd/system/user.service && systemctl daemon-reload && systemctl start user && systemctl enable user &>>$LOG
 Stat $?
